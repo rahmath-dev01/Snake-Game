@@ -13,6 +13,7 @@ const blockHeight = 50
 const blockWidth = 50
 
 let highScore= localStorage.getItem("highScore")|| 0
+highScoreElement.innerText = highScore;
 let score = 0
 let time = `00-00`
 
@@ -20,6 +21,7 @@ const cols = Math.floor(board.clientWidth / blockWidth)
 const rows = Math.floor(board.clientHeight / blockHeight)
 
 let intervalid = null;
+let timerintervalid = null;
 const blocks = [];
 let food = {x:Math.floor(Math.random()*rows),y:Math.floor(Math.random()*cols)}
 let snake = [
@@ -83,7 +85,7 @@ if(head.x == food.x && food.y == head.y){
 
    if(score> highScore){
     highScore =score
-    localStorage.setItem("highScore",highScore.toString)
+    localStorage.setItem("highScore",highScore)
    }
 
 
@@ -105,12 +107,7 @@ if(head.x == food.x && food.y == head.y){
   })
 }
 
-//  intervalid = setInterval(()=>{
 
-
-//   render()
-  
-// },300)
 
 startButton.addEventListener("click",()=>{
   intervalid = setInterval(()=> { render() } ,300)
