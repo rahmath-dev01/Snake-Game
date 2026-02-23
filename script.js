@@ -31,6 +31,9 @@ let snake = [
   }
 ]
 
+const foodBlock = blocks[`${food.x}-${food.y}`];
+if (foodBlock) foodBlock.style.borderRadius = '50%';
+
 let direction = 'right'
 
 
@@ -74,6 +77,13 @@ function render(){
 }
 // food consume 
 if(head.x == food.x && food.y == head.y){
+    let isCollide = snake.some(segment => 
+    segment.x === head.x && segment.y === head.y
+)
+
+if(isCollide){
+   
+}
  
   blocks[`${food.x}-${food.y}`].classList.remove("food")
   food = {x:Math.floor(Math.random()*rows),y:Math.floor(Math.random()*cols)}
@@ -145,7 +155,9 @@ function restartGame(){
   intervalid = setInterval(()=> { render() } ,300)
   
 
+
 }
+
 
 addEventListener("keydown",function(event){
   if(event.key == "ArrowRight"){
@@ -158,3 +170,5 @@ addEventListener("keydown",function(event){
     direction = "up"
   }
 })
+
+
