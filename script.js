@@ -31,7 +31,7 @@ let snake = [
   }
 ]
 
-let direction = 'down'
+let direction = 'right'
 
 
 for(let row=0 ; row<rows ; row++){
@@ -88,7 +88,6 @@ if(head.x == food.x && food.y == head.y){
     localStorage.setItem("highScore",highScore)
    }
 
-
 }
 
 
@@ -112,6 +111,18 @@ if(head.x == food.x && food.y == head.y){
 startButton.addEventListener("click",()=>{
   intervalid = setInterval(()=> { render() } ,300)
   modal.style.display = "none"
+  timerintervalid = setInterval(()=>{
+    let [min ,sec ] = time.split("-").map(Number)
+    if(sec == 59){
+      min+=1
+      sec=0
+    }
+    else{
+      sec+=1
+    }
+    time =`${min}-${sec}`
+    timeElemnt.innerText =time
+  },1000)
 })
 
 restartButton.addEventListener('click',restartGame)
@@ -124,6 +135,7 @@ function restartGame(){
   score=0
   time=`00-00`
 
+  direction ='right'
   scoreElemnt.innerText= score
   timeElemnt.innerText= time
   highScoreElement.innerText=highScore
