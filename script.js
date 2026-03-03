@@ -73,6 +73,10 @@ function render(){
   gameOverModal.style.display = "flex"
   
 
+
+
+
+  
   return;
 }
 // food consume 
