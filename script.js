@@ -71,12 +71,7 @@ function render(){
   modal.style.display ="flex"
   startGameModal.style.display = "none"
   gameOverModal.style.display = "flex"
-  
-
-
-
-
-  
+    
   return;
 }
 // food consume 
