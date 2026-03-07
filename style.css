@@ -107,7 +107,7 @@ section #infos{
   position: fixed;
   top: 0;
   background-color: #2e2d2dd3;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(3px);
   display: flex;
   flex-direction: column;
   justify-content: center;
