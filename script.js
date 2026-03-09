@@ -97,6 +97,8 @@ if(isCollide){
     localStorage.setItem("highScore",highScore)
    }
 
+
+   
 }
 
 
